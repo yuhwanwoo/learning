@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { StyleSheet, Text, View,Button,} from 'react-native';
+import { StyleSheet, Text, View,Button} from 'react-native';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { IconButton, Colors } from 'react-native-paper';
+
+import {Header,Right,Left, Container} from 'native-base'
 
 function SettingsScreen({ route, navigation }) {
   const { user } = route.params;
@@ -22,7 +24,13 @@ function SettingsScreen({ route, navigation }) {
 
 function ProfileScreen({ navigation }) {
   return (
-    <View style={{alignItems: 'center', alignContent:'center',}}>
+    <Container >
+      <Header style={{backgroundColor:"#63FD00"}}>
+        <Right>
+          <IconButton icon="menu" onPress={() => navigation.dispatch(DrawerActions.openDrawer())}></IconButton>
+        </Right>
+      </Header>
+      <View style={{alignItems: 'center', alignContent:'center',}}>
       <View style={styles.test_nav}>
       <IconButton icon="menu" onPress={() => navigation.dispatch(DrawerActions.openDrawer())}></IconButton>
       </View>
@@ -32,6 +40,8 @@ function ProfileScreen({ navigation }) {
       <Text>test</Text>
     </View>
     </View>
+      </Container>
+    
     
   );
 }
