@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { StyleSheet, Text, View,Button} from 'react-native';
+import { StyleSheet, Text, View,Button, Image} from 'react-native';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { IconButton, Colors } from 'react-native-paper';
 
-import {Header,Right,Left, Container} from 'native-base'
+import {Header,Right,Left, Container, Thumbnail} from 'native-base'
 
 function SettingsScreen({ route, navigation }) {
   const { user } = route.params;
@@ -25,21 +25,32 @@ function SettingsScreen({ route, navigation }) {
 function ProfileScreen({ navigation }) {
   return (
     <Container >
-      <Header style={{backgroundColor:"#63FD00"}}>
+      <Header style={styles.test_nav}>
+        <Left>
+          <Image style={styles.logo} source={{uri:'./learn.png'}}/>
+          <Thumbnail square style={styles.logo} source={{uri:'./learn.png'}}/>
+        </Left>
         <Right>
           <IconButton icon="menu" onPress={() => navigation.dispatch(DrawerActions.openDrawer())}></IconButton>
         </Right>
       </Header>
-      <View style={{alignItems: 'center', alignContent:'center',}}>
-      <View style={styles.test_nav}>
-      <IconButton icon="menu" onPress={() => navigation.dispatch(DrawerActions.openDrawer())}></IconButton>
-      </View>
 
+      <View style={{alignItems: 'center', alignContent:'center',}}>
+      <Thumbnail square style={styles.logo} source={{uri:'learn.png'}}/>
+      <Image style={styles.logo} source={{uri:'./learn.png'}}/>
+      
       <Text>Profile Screen</Text>
       <View>
       <Text>test</Text>
     </View>
     </View>
+    <View style={styles.container}>
+      
+      <Image
+        style={styles.logo}
+        source={require('./image/learn.png')}
+      />
+      </View>
       </Container>
     
     
@@ -102,8 +113,11 @@ const styles = StyleSheet.create({
     backgroundColor:'#5fdeb6',
   },
   test_nav:{ 
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor:"#81e6b5", 
+  },
+  logo:{
+    
+    width:80,
+    height:80,
   },
 });
