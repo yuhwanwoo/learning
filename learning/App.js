@@ -35,8 +35,8 @@ function ProfileScreen({ navigation }) {
         </Right>
       </Header>
       
-      <Content>
-          <Card>
+      <Content style={{backgroundColor:'#81e6b5', margin:30}}>
+          <Card style={{borderRadius:50}}>
             <CardItem>
               <Left>
                 <Thumbnail style={{height:30, width:30}} source={require('./image/pro.jpg')} />
@@ -47,11 +47,11 @@ function ProfileScreen({ navigation }) {
               </Left>
             </CardItem>
             <CardItem cardBody>
-              <Image source={require('./image/card.jpg')} style={{height: 200, width: null, flex: 1}}/>
+              <Image source={require('./image/card.jpg')} style={{margin:10, height: 150, width: 150, flex: 1, justifyContent: 'space-between', alignItems: 'center',borderRadius:20}}/>
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent title="추천 수">
+                <Button transparent title="추천 수" >
                   <Icon active name="thumbs-up" />
                   <Text>12 Likes</Text>
                 </Button>
@@ -67,22 +67,36 @@ function ProfileScreen({ navigation }) {
               </Right>
             </CardItem>
           </Card>
-          <Text>
-          </Text>
-          <ScrollView
-  horizontal={true}
-  showsHorizontalScrollIndicator={false}
-  contentContainerStyle={{
-  alignItems: 'center',
-  paddingStart: 5,
-  paddingEnd: 5
-}}>
-  <Thumbnail 
+        </Content>
+        <Content>
+
+
+<View style={{ height: 100 }}>
+    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 7 }}>
+        <Text style={{ fontWeight: 'bold' }}>카테고리</Text>
+
+        <View style={{flexDirection:'row',alignItems:'center'}}>
+            <Icon name="md-play" style={{fontSize:14}}></Icon>
+            <Text style={{fontWeight:'bold'}}> Watch All</Text>
+        </View>
+    </View>
+    <View style={{ flex: 3 }}>
+
+    <ScrollView horizontal={true}>
+      <View style={{flexDirection:'column',alignItems:'center'}}>
+      <Thumbnail 
     style={{ marginHorizontal: 5, borderColor: 'pink', borderWidth: 2 }}
-    source={{uri: 'https://storage.pixteller.com/designs/designs-images/2016-11-19/02/thumbs/img_page_1_58305b35ebf5e.png' }} />
+    source={{uri: 'https://storage.pixteller.com/designs/designs-images/2016-11-19/02/thumbs/img_page_1_58305b35ebf5e.png' }} >
+    </Thumbnail>
+    <Text>코딩</Text>
+    </View>
+    <View style={{flexDirection:'column',alignItems:'center'}}>
     <Thumbnail 
     style={{ marginHorizontal: 5, borderColor: 'pink', borderWidth: 2 }}
     source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl26_3P-JK93cCsNUbfiLf2frvPpOrPz-YBg&usqp=CAU' }} />
+    <Text>제빵</Text>
+    </View>
+
     <Thumbnail 
     style={{ marginHorizontal: 5, borderColor: 'pink', borderWidth: 2 }}
     source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzjIwk8J6HySnA4Lbq4GgKv_og10cX0fBVbg&usqp=CAU' }} />
@@ -106,12 +120,15 @@ function ProfileScreen({ navigation }) {
     source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzjIwk8J6HySnA4Lbq4GgKv_og10cX0fBVbg&usqp=CAU' }} />
     
     </ScrollView>
-        </Content>
+  </View>
 
+</View>
+
+</Content>
         
       </Container>
     
-
+      
   );
 }
 
